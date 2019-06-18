@@ -33,7 +33,7 @@ $(document).ready(function(){
             // A textarea to add a new note body
             $("#comment").append("<textarea id='bodyinput' name='body'></textarea>");
             // A button to submit a new note, with the id of the article saved to it
-            $("#comment").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+            $("#comment").append("<button data-id='" + data._id + "' id='saveComment'>Save Comment</button>");
       
             // If there's a note in the article
             if (data.comment) {
@@ -44,4 +44,24 @@ $(document).ready(function(){
             }
           });
       });
-})
+
+      $(document).on("click", "#saveComment", function(){
+          let id = $(this).attr('data-id');
+
+          $.post('/comment/'+id, {
+              title: $('#titleinput').val().trim(),
+              comment: $('#bodyinput').val().trim()
+          }).then(function(result){
+              console.log(result)
+              $('#comment').empty();
+          })
+      })
+
+    //   $(document).on("click", ".btn-danger", function(){
+    //       let id = $(this).attr('id');
+    //       $.delete('/article/delete/'+id, {
+    //           type: 'DELETE'
+    //         })
+    //         location.reload();
+    //     });
+});

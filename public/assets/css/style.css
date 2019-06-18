@@ -6,6 +6,10 @@ li.allArticles {
     background-color: rgb(142, 133, 226);
 }
 
+#comment {
+    float: right;
+}
+
 /* body {
     background-image: 
 } */

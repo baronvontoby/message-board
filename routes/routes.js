@@ -21,7 +21,8 @@ app.get('/scrape', function(req, res){
             .children('a')
             .attr('href');
 
-            db.Article.create(results).then(function(response){
+            db.Article.create(results)
+            .then(function(response){
                 console.log('success');
                 res.json(response);
             }).catch(function(err){
@@ -48,11 +49,26 @@ app.get('/articles', function(req, res){
     });
 });
 
-
+app.post('/comment/:id', function(req, res){
+    db.Comment.create(req.body)
+    .then(function(dbComment){
+        return db.Article.findOneAndUpdate({_id:req.params.id}, {comment: dbComment._id}, {new: true})
+    }).then(function(success){
+        console.log(success)
+        res.json(success);
+    }).catch(function(err){
+        res.json(err);
+    })
+})
 
 app.get('/', function(req, res){
     res.render('index');
 });
 
+// app.delete('/article/delete/:id', function(req, res){
+//     db.Article.deleteOne({_id:req.params.id});
+//     console.log('deleted')
+//     res.send('deleted')
+// })
 
 }
