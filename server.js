@@ -26,10 +26,10 @@ app.set("view engine", "handlebars");
 
 require('./routes/routes')(app);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/disneyArticles";
 
 //connecting to the database
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI,{useNewUrlParser:true});
 
 app.listen(PORT, function(){
     console.log('Server now listening on ' + PORT);

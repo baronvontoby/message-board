@@ -1,0 +1,26 @@
+<div class='container'>
+    <div class="jumbotron">
+        <h1 class="display-4">Everything Disney!</h1>
+        <p class="lead">This website will allow you to look up current articles about all things Disney</p>
+        <hr class="my-4">
+        <p>Just click the button and start looking for some articles!</p>
+        <button class="btn btn-primary btn-lg" id="clear" role="button">Clear Articles</button>
+        <button class="btn btn-primary btn-lg" id="viewArticles" role="button">View all Articles</button>
+    </div>
+    <div class='row'>
+        <ul class="list-group">
+            {{#each data}}
+                <li class="list-group-item allArticles">
+                    <p class="article">{{title}}</p>
+                    <br> 
+                    <a href={{link}} target="_blank"><button class="btn btn-primary">View Article</button></a>
+                    <button class="btn btn-info" id={{id}}>Comment</button>
+                    <button class="btn btn-success" id={{id}}>Save</button>
+                    <button class="btn btn-danger" id={{id}}>Delete</button>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div id="comment">
+    </div>
+</div>
