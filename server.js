@@ -10,7 +10,7 @@ let http = require('http');
 // Initialize Express
 var app = express();
 
-require('./routes/routes')(app);
+require('./routes/routes.js')(app);
 // Make public a static folder
 app.use(express.static("public"));
 // Configure middleware
