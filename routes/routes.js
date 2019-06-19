@@ -33,7 +33,7 @@ app.get('/scrape', function(req, res){
 });
 
 app.get('/articles/:id', function(req, res){
-    db.Article.findOne({_id: req.params.id}).
+    db.article.findOne({_id: req.params.id}).
     populate('comment')
     .then(function(result){
         res.json(result)
@@ -43,14 +43,14 @@ app.get('/articles/:id', function(req, res){
 });
 
 app.get('/articles', function(req, res){
-    db.Article.find({}).limit(10).then(function(articles){
+    db.article.find({}).limit(10).then(function(articles){
         res.render('articles', 
         {data:articles})
     });
 });
 
 app.post('/comment/:id', function(req, res){
-    db.Comment.create(req.body)
+    db.comment.create(req.body)
     .then(function(dbComment){
         return db.Article.findOneAndUpdate({_id:req.params.id}, {comment: dbComment._id}, {new: true})
     }).then(function(success){
