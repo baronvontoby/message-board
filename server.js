@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 
-let PORT = process.env.PORT || 8080;
+// let PORT = process.env.PORT || 8080;
 
 
 // Initialize Express
@@ -31,6 +31,6 @@ let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/disneyArticles
 //connecting to the database
 mongoose.connect(MONGODB_URI,{useNewUrlParser:true});
 
-app.listen(PORT, function(){
-    console.log('Server now listening on ' + PORT);
+app.listen(process.env.PORT||8080, function(){
+    console.log('Server now listening on ');
 });
