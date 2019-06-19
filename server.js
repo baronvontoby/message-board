@@ -1,10 +1,10 @@
 var express = require("express");
-var logger = require("morgan");
+// var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 
 
-var PORT = process.env.PORT || 8080;
+let PORT = process.env.PORT || 8080;
 
 
 // Initialize Express
@@ -16,7 +16,7 @@ app.use(express.static("public"));
 // Configure middleware
 
 // Use morgan logger for logging requests
-app.use(logger("dev"));
+// app.use(logger("dev"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
