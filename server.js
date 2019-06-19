@@ -26,7 +26,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/disneyArticles";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/disneyArticles";
+
 
 //connecting to the database
 mongoose.connect(MONGODB_URI,{useNewUrlParser:true});

@@ -21,7 +21,7 @@ app.get('/scrape', function(req, res){
             .children('a')
             .attr('href');
 
-            db.Article.create(results)
+            db.article.create(results)
             .then(function(response){
                 console.log('success');
                 res.json(response);
