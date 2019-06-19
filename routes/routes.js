@@ -66,9 +66,10 @@ app.get('/', function(req, res){
 });
 
 // app.delete('/article/delete/:id', function(req, res){
-//     db.Article.deleteOne({_id:req.params.id});
-//     console.log('deleted')
-//     res.send('deleted')
+//     db.Article.deleteOne({_id:req.params.id}).then(function(deleted){
+    //     console.log('deleted')
+    //     res.send('deleted')
+// })
 // })
 
 }
