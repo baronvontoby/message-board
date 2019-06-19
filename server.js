@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 8080;
 // Initialize Express
 var app = express();
 
+require('./routes/routes')(app);
 // Make public a static folder
 app.use(express.static("public"));
 // Configure middleware
@@ -24,7 +25,6 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-require('./routes/routes')(app);
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/disneyArticles";
 
