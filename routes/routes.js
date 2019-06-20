@@ -1,8 +1,8 @@
 var db = require('../models');
 var axios = require('axios');
 var cheerio = require('cheerio');
-
-module.exports = function (app){
+let express = require('express');
+let app = express();
 
 app.get('/scrape', function(req, res){
     axios.get('https://disneyparks.disney.go.com/blog/latest-stories/').then(function(response){
@@ -76,4 +76,4 @@ app.get("/favicon.ico", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/favicon/favicon.ico"));
 });
 
-}
+module.exports = app;
